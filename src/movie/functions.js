@@ -18,3 +18,29 @@ exports.listMovies = async () => {
     }
 };
 
+exports.updateMovie = async (theOriginal, theUpdate) => {
+    try {
+         const response = await Movie.update(
+            {title: theUpdate.title},      
+            {
+                where: {
+                    title: theOriginal.title
+                }
+            }
+        ) 
+        console.log(response);
+    } catch (error) {
+    console.log(error);
+    }
+};
+
+exports.deleteMovie = async (movieObj) => {
+    try {
+        await Movie.destroy({where: movieObj});
+        console.log("deleted");
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+
