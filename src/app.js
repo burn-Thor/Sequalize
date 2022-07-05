@@ -15,8 +15,8 @@ const app = async (yargsObj) =>  {
             
         } else if (yargsObj.update) {
             // update one entry in movie table
-            await updateMovie(yargsObj.update, {
-                title: yargsObj.title
+            await updateMovie(yargsObj.update,{
+                title:yargsObj.title
                 });
 
 
