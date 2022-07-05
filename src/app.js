@@ -8,6 +8,7 @@ const app = async (yargsObj) =>  {
         if (yargsObj.add) {
             // add something to movie table
             await addMovie({title:yargsObj.title, actor: yargsObj.actor});
+        
         } else if (yargsObj.list) {
             // list contents of movie table
             await listMovies()
@@ -15,9 +16,9 @@ const app = async (yargsObj) =>  {
             
         } else if (yargsObj.update) {
             // update one entry in movie table
-            await updateMovie(yargsObj.update,{
-                title:yargsObj.title
-                });
+            const theUpdate = {title: yargsObj.newTitle, actor: yargsObj.newActor}; const theOriginal = {title: yargsObj.oldTitle};
+            
+            await updateMovie(theUpdate, theOriginal);
 
 
         } else if (yargsObj.delete) {

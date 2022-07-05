@@ -18,17 +18,12 @@ exports.listMovies = async () => {
     }
 };
 
-exports.updateMovie = async (theOriginal, theUpdate) => {
+exports.updateMovie = async (theUpdate, theOriginal) => {
     try {
          const response = await Movie.update(
-            {title: theUpdate.title},      
-            {
-                where: {
-                    title: theOriginal.title
-                }
-            }
-        ) 
-        console.log(response);
+            {title: theUpdate.title, actor: theUpdate.actor},
+            {where: {title: theOriginal.title}});
+        console.log("Updated your movie");
     } catch (error) {
     console.log(error);
     }
